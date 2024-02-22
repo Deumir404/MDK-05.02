@@ -17,10 +17,34 @@ begin
   Head := NewNode;
 end;
 
-
-procedure Addafter ( var Head: PNode; NewNode: PNode );
+function FindPlace(Head: PNode; NewWord: string): PNode;
+var pp: PNode; count: integer;
 begin
+  pp := Head;
+  while (pp <> nil) and (NewWord > pp^.word) do
+  begin
+    pp := pp^.next;
+  end;
+  FindPlace := pp;
+end;
+
+procedure AddAfter(var Head: Pnode; NewNode: Pnode);
+begin
+  NewNode^.next := Head^.next;
   Head^.next := NewNode;
+end;
+  
+procedure AddBefore ( var Head: PNode; p, NewNode: PNode );
+var q:PNode;
+begin
+  q := Head;
+  if p = Head then
+    AddFirst(Head, NewNode)
+  else begin
+    while (q<>nil) and (q^.next <> p) do
+      q := q^.next;
+    if q <> nil then AddAfter(q,NewNode);
+  end;
 end;
 
 procedure AddLast ( var Head: PNode; NewNode: PNode );
@@ -29,10 +53,8 @@ begin
   if Head = nil then
     AddFirst ( Head, NewNode ) // добавляем в пустой список
   else begin
-    pp := Head;
-    while pp^.next <> nil do // поиск последнего узла
-      pp := pp^.next;
-    AddAfter ( pp, NewNode ); // после узла pp добавляем узел
+    pp:= FindPlace(Head, NewNode^.word);
+    AddBefore (Head, pp, NewNode ); // после узла pp добавляем узел
   end;
 end;
 
@@ -46,17 +68,17 @@ begin
   Result := NewNode;
 end;
 
-function FindPlace(Head: PNode; NewWord: string): PNode;
-var pp: PNode; count: integer;
+function Find(Head: PNode; NewWord: string): PNode;
+var pp: PNode;
 begin
   pp := Head;
-  while (pp <> nil) and (NewWord <> pp^.word) do
-  begin
+  // пока не конец списка и слово в просматриваемом узле не равно искомому
+  while (pp <> nil) and (NewWord <> pp^.word) do 
     pp := pp^.next;
-  end;
   Result := pp;
-  FindPlace := Result
 end;
+
+
 
 procedure count_list(Head: PNode);
 var pp: PNode; count: integer;
@@ -68,14 +90,14 @@ begin
     count += 1;
     pp := pp^.next;
   end;
-  Writeln(count);
+  Writeln('Amount unique word ',count);
 end;
 
 procedure show_list(Head: PNode);
 var pp: PNode; correct: integer;
 begin
   pp := Head;
-  correct := 1;
+  correct := 2;
   while pp <> nil do
   begin
     if correct mod 2 = 0 then
@@ -83,26 +105,26 @@ begin
       Writeln(pp^);
     end;
     pp := pp^.next;
-    inc(correct);
+    //inc(correct);
   end;
 end;
 
 procedure show_min_max(Head: PNode);
-var pp: PNode; min, max: integer;
+var pp: PNode; min, max: PNode;
 begin
   pp := Head;
-  min := pp^.count;
-  max := pp^.count;
+  min := pp;
+  max := pp;
   while pp <> nil do
   begin
-    if min > pp^.count then
-      min := pp^.count;
-    if max < pp^.count then
-      max := pp^.count;
+    if min^.count > pp^.count then
+      min := pp;
+    if max^.count < pp^.count then
+      max := pp;
     pp := pp^.next;
   end;
-  Writeln('Max element ',max);
-  Writeln('Min element ',min);
+  Writeln('Max count element ',max^.word);
+  Writeln('Min count element ',min^.word);
 end;
   
 
@@ -113,12 +135,10 @@ begin
   while not EOF(F) do
   begin
     Readln(F, WordToFind);
-   // Addlast(Head, CreateNode(WordToFind));
-    Previous := FindPlace(Head, WordToFind);
-    if Previous = nil 
-      then Addlast(Head, CreateNode(WordToFind))
-    else 
-      inc(previous^.count);
+    Previous := Find(Head, WordToFind);
+    if Previous = nil then
+      Addlast(Head, CreateNode(WordToFind))
+    else inc(previous^.count);
   end;
   count_list(Head);
   Writeln('--------');
