@@ -1,0 +1,59 @@
+object Form1: TForm1
+  Left = 286
+  Height = 240
+  Top = 217
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '3.0.0.3'
+  object Label1: TLabel
+    Left = 8
+    Height = 20
+    Top = 32
+    Width = 305
+    Caption = 'Догадайтесь, кто сделал этот проект?'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Height = 20
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+    OnClick = Label1Click
+  end
+  object Button1: TButton
+    Left = 52
+    Height = 41
+    Top = 98
+    Width = 202
+    Caption = 'Щелкните здесь!'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object Label2: TLabel
+    Left = 54
+    Height = 1
+    Top = 146
+    Width = 1
+  end
+  object BitBtn1: TBitBtn
+    Left = 199
+    Height = 27
+    Top = 176
+    Width = 83
+    Caption = '& Закрыть'
+    Kind = bkClose
+    ModalResult = 11
+    OnClick = BitBtn1Click
+    TabOrder = 1
+  end
+end
