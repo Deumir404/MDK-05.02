@@ -1,0 +1,73 @@
+object Form1: TForm1
+  Left = 256
+  Height = 193
+  Top = 185
+  Width = 364
+  Caption = 'Form1'
+  ClientHeight = 193
+  ClientWidth = 364
+  LCLVersion = '3.0.0.3'
+  object Label_a: TLabel
+    Left = 16
+    Height = 15
+    Top = 40
+    Width = 108
+    Caption = 'Введите значение A'
+    OnClick = Label_aClick
+  end
+  object Label_b: TLabel
+    Left = 16
+    Height = 15
+    Top = 64
+    Width = 107
+    Caption = 'Введите значение B'
+    OnClick = Label_bClick
+  end
+  object Edit_a: TEdit
+    Left = 152
+    Height = 23
+    Top = 32
+    Width = 129
+    TabOrder = 0
+  end
+  object Edit_b: TEdit
+    Left = 152
+    Height = 23
+    Top = 60
+    Width = 129
+    TabOrder = 1
+  end
+  object Button_math: TButton
+    Left = 24
+    Height = 23
+    Top = 92
+    Width = 248
+    Caption = 'Вычислить'
+    TabOrder = 2
+    OnClick = Button_mathClick
+  end
+  object Label1: TLabel
+    Left = 18
+    Height = 15
+    Top = 131
+    Width = 141
+    Caption = 'Значение функции равно'
+  end
+  object answer: TLabel
+    Left = 200
+    Height = 15
+    Top = 129
+    Width = 5
+    Caption = '?'
+  end
+  object BitBtn1: TBitBtn
+    Left = 20
+    Height = 26
+    Top = 152
+    Width = 89
+    Caption = '&  Закрыть'
+    Kind = bkClose
+    ModalResult = 11
+    TabOrder = 3
+  end
+end
