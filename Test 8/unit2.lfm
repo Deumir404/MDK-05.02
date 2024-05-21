@@ -1,0 +1,78 @@
+object Triangle_1: TTriangle_1
+  Left = 522
+  Height = 254
+  Top = 296
+  Width = 272
+  Caption = 'Треугольник'
+  ClientHeight = 254
+  ClientWidth = 272
+  LCLVersion = '3.0.0.3'
+  object Question: TLabel
+    Left = 56
+    Height = 15
+    Top = 24
+    Width = 164
+    Caption = 'Введите размеры трёх сторон'
+  end
+  object Edit_a: TEdit
+    Left = 54
+    Height = 23
+    Top = 52
+    Width = 158
+    NumbersOnly = True
+    TabOrder = 0
+  end
+  object Edit_b: TEdit
+    Left = 54
+    Height = 23
+    Top = 80
+    Width = 157
+    NumbersOnly = True
+    TabOrder = 1
+  end
+  object Edit_c: TEdit
+    Left = 54
+    Height = 23
+    Top = 112
+    Width = 158
+    NumbersOnly = True
+    TabOrder = 2
+  end
+  object Button_math: TButton
+    Left = 54
+    Height = 20
+    Top = 144
+    Width = 177
+    Caption = 'Рассчитать'
+    TabOrder = 3
+    OnClick = Button_mathClick
+  end
+  object Answer_memo: TMemo
+    Left = 50
+    Height = 70
+    Top = 177
+    Width = 184
+    TabOrder = 4
+  end
+  object cm: TLabel
+    Left = 223
+    Height = 15
+    Top = 54
+    Width = 15
+    Caption = 'см'
+  end
+  object cm_2: TLabel
+    Left = 223
+    Height = 15
+    Top = 82
+    Width = 15
+    Caption = 'см'
+  end
+  object cm_3: TLabel
+    Left = 223
+    Height = 15
+    Top = 112
+    Width = 15
+    Caption = 'см'
+  end
+end

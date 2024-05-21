@@ -1,0 +1,48 @@
+object Circle: TCircle
+  Left = 325
+  Height = 214
+  Top = 261
+  Width = 278
+  Caption = ' Круг'
+  ClientHeight = 214
+  ClientWidth = 278
+  LCLVersion = '3.0.0.3'
+  object Label1: TLabel
+    Left = 96
+    Height = 15
+    Top = 24
+    Width = 84
+    Caption = 'Введите радиус'
+  end
+  object Edit_a: TEdit
+    Left = 54
+    Height = 23
+    Top = 52
+    Width = 158
+    NumbersOnly = True
+    TabOrder = 0
+  end
+  object Button_math: TButton
+    Left = 56
+    Height = 20
+    Top = 80
+    Width = 177
+    Caption = 'Рассчитать'
+    TabOrder = 1
+    OnClick = Button_mathClick
+  end
+  object answer_memo: TMemo
+    Left = 54
+    Height = 70
+    Top = 112
+    Width = 184
+    TabOrder = 2
+  end
+  object Label2: TLabel
+    Left = 223
+    Height = 15
+    Top = 54
+    Width = 15
+    Caption = 'см'
+  end
+end
